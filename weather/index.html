@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <head>
+<title>City weather and more</title>
+<link rel="stylesheet" type="text/css" href="weather_page.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 
 <script>
@@ -16,9 +18,11 @@
 
 
 <body>
-	<h1>Enter city name</h1>
+	<h1>Enter city</h1>
+	<div>
 	<input type="text" name="search_string" id="searchBox">
 	<button id="submitWeatherSearch"  type=submit onclick="getWeather()">Get weather!</button>
+	</div>
 	<p id="searchResult"></p>
 
 	<script type="text/javascript">
