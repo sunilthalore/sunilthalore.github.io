@@ -32,6 +32,7 @@ h1 { color: white }
     font-family: 'Helvetica';
     color: white;
     vertical-align: bottom;
+    margin-top: 10px
 }
 
 #searchResult {
@@ -40,12 +41,6 @@ h1 { color: white }
 	color: white;
 	font-size: 3.5em;
 	color:white;
-}
-
-#progressBar {
-  margin: 20px;
-  width: 200px;
-  height: 200px;
 }
 }
 
