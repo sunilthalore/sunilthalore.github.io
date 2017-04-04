@@ -20,10 +20,11 @@
 <body>
 	<h1>Enter city</h1>
 	<div>
-	<input type="text" name="search_string" id="searchBox">
+	<input type="text" name="search_string" id="searchBox" autofocus>
 	<button id="submitWeatherSearch"  type=submit onclick="getWeather()">Get weather!</button>
 	</div>
 	<p id="searchResult"></p>
+
 
 	<script type="text/javascript">
 	document.getElementById("searchBox")
@@ -35,18 +36,21 @@
 	});
 	</script>
 
+
 	<script type="text/javascript">
-	var accessToken = "YOURACCESSTOKEN";
 	var baseUrl = "https://api.api.ai/v1/";
 	var sessionID="mytesttempid";
 	var v="20150910";
-		function getWeather(){
-			var searchString = document.getElementById("searchBox").value
-			console.log(searchString)
-			var xhttp = new XMLHttpRequest();
+
+	function getWeather(){
+		document.getElementById("submitWeatherSearch").innerHTML = "Please wait!";
+		var searchString = document.getElementById("searchBox").value
+		console.log(searchString)
+		var xhttp = new XMLHttpRequest();
 			
-			xhttp.onreadystatechange = function() {
-			 if (xhttp.readyState == XMLHttpRequest.DONE) {
+		xhttp.onreadystatechange = function() {
+			if (xhttp.readyState == XMLHttpRequest.DONE) {
+				document.getElementById("submitWeatherSearch").innerHTML = "Get weather!";
 			 	var responseTextResult = xhttp.responseText;
 				console.log("logegged repsonse:" +responseTextResult);
 				let responseJSON = JSON.parse(responseTextResult);
@@ -56,14 +60,12 @@
 			 }
 			}
 
-			url = baseUrl + "query?" + "v="+v+"&sessionId="+sessionID+"&lang=en"+"&query="+searchString;
-			xhttp.open("GET",url,true);
-			xhttp.setRequestHeader("Content-Type", "application/json; charset=utf-8");
-			xhttp.setRequestHeader("Authorization", "Bearer 8875a8fe7d6f478ca5502d997f732f43");
-			xhttp.send();
-
-			console.log("send reqeust")
-
+		url = baseUrl + "query?" + "v="+v+"&sessionId="+sessionID+"&lang=en"+"&query="+searchString;
+		xhttp.open("GET",url,true);
+		xhttp.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+		xhttp.setRequestHeader("Authorization", "Bearer8875a8fe7d6f478ca5502d997f732f43");
+		xhttp.send();
+		console.log("send reqeust")
 		}
 	</script>
 </body>
