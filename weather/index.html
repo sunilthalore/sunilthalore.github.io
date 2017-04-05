@@ -44,6 +44,7 @@
 
 	function getWeather(){
 		document.getElementById("submitWeatherSearch").innerHTML = "Please wait!";
+		document.getElementById("searchResult").innerHTML = "";
 		var searchString = document.getElementById("searchBox").value
 		console.log(searchString)
 		var xhttp = new XMLHttpRequest();
